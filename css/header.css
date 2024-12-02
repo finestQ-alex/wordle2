@@ -1,0 +1,43 @@
+header {
+  border-bottom: 1px solid #ededef;
+  padding-bottom: 5px;
+}
+
+.menu-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 15px 10px 15px;
+}
+
+.menu-bar__hamburger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-bar__hamburger img {
+  width: 30px;
+}
+
+.menu-bar__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 80px;
+}
+
+.menu-bar__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-bar__icons img {
+  width: 30px;
+  margin-left: 5px;
+}
