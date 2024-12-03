@@ -29,20 +29,15 @@ footer {
   cursor: pointer;
 }
 
-.keyboard-column__wide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#enter {
   width: 90px;
-  height: 80px;
-  background: var(--keyboard);
-  border: 1px solid var(--keyboard);
-  border-radius: 10px;
   font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
 }
 
-.keyboard-column__wide img {
+#backspace {
+  width: 90px;
+}
+
+.keyboard-column img {
   width: 40px;
 }
