@@ -14,11 +14,13 @@ main {
   gap: 5px;
 }
 
-.board-block {
+.board-column {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 3px solid #d3d6da;
   width: 60px;
   height: 60px;
+  font-size: 30px;
+  font-weight: bold;
 }
