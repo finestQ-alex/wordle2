@@ -24,3 +24,23 @@ main {
   font-size: 30px;
   font-weight: bold;
 }
+
+/*애니메이션 추가*/
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  30% {
+    transform: rotateY(180deg);
+  }
+  60% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+.flipped {
+  animation: rotate 0.5s ease-in-out infinite;
+}

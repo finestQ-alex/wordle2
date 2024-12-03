@@ -12,18 +12,21 @@ function appStart() {
       "display:flex;justify-content:center;align-items:center;position:absolute;top:40vh;left:46vw;background-color:white;width:200px;height:50px;";
     document.body.appendChild(div);
   };
+
   //다음줄로 이동
   const nextLine = () => {
     if (attempts === 6) return gameover();
     attempts += 1;
     index = 0;
   };
+
   //게임오버
   const gameover = () => {
     window.removeEventListener("keydown", handleKeydown);
     displayGameover();
     clearInterval(timer);
   };
+
   //엔터키 입력 처리
   const handleEnterKey = () => {
     let correct_num = 0;
@@ -36,23 +39,24 @@ function appStart() {
       const answerLetter = answer[i];
       if (inputLetter === answerLetter) {
         correct_num += 1;
-        block.style.background = "#6aaa64";
+        block.style.background = "#6aaa64"; // 초록색
       } else if (answer.includes(inputLetter)) {
-        block.style.background = "#c9b458";
+        block.style.background = "#c9b458"; // 노란색
       } else {
-        block.style.background = "#787c7e";
+        block.style.background = "#787c7e"; // 회색
       }
 
-      block.style.color = "white";
-      keyboardColor(inputLetter);
+      block.style.color = "white"; // 텍스트 색상 설정
+      keyboardColor(inputLetter); // 키보드 색상 업데이트
     }
+
     if (correct_num === 5) {
-      flipBoard();
+      flipBoard(); // 정답을 맞췄을 때 보드 뒤집기
       gameover();
     } else nextLine();
   };
 
-  //백스페이스
+  //백스페이스 처리
   const hadleBackspace = () => {
     if (index > 0) {
       const preBlock = document.querySelector(
@@ -62,7 +66,8 @@ function appStart() {
     }
     if (index !== 0) index -= 1;
   };
-  //키보드 입력
+
+  //키보드 입력 처리
   const handleKeydown = (event) => {
     const key = event.key.toUpperCase();
     const keyCode = event.keyCode;
@@ -80,7 +85,7 @@ function appStart() {
     }
   };
 
-  //키보드 색상 업데이트를 위한 버튼 점검
+  //키보드 색상 업데이트
   const keyboardColor = (inputLetter) => {
     const keyButton = document.querySelector(`[data-key='${inputLetter}']`);
     if (!keyButton) return;
@@ -92,10 +97,9 @@ function appStart() {
       keyButton.style.background = "#787c7e";
       keyButton.style.borderColor = "#787c7e";
     }
-    keyButton.style.color = "white";
   };
 
-  //마우스 클릭 이벤트
+  //마우스 클릭 이벤트 처리
   const clickKey = (e) => {
     const thisBlock = document.querySelector(
       `.board-column[data-index="${attempts}${index}"]`
@@ -110,16 +114,17 @@ function appStart() {
       thisBlock.innerText = e.target.innerText;
       index += 1;
 
-      keyboardColor(e.target.innerText);
+      keyboardColor(e.target.innerText); // 키보드 색상 업데이트
     }
   };
 
+  //키보드 클릭 이벤트 리스너 추가
   const keyBlocks = document.querySelectorAll(".keyboard-column");
   for (let keyBlock of keyBlocks) {
     keyBlock.addEventListener("click", clickKey);
   }
 
-  //타이머
+  //타이머 시작
   const startTimer = () => {
     const start_time = new Date();
 
@@ -133,18 +138,20 @@ function appStart() {
     }
     timer = setInterval(setTime, 1000);
   };
+
   startTimer();
   window.addEventListener("keydown", handleKeydown);
 
+  // 정답을 맞췄을 때 보드를 뒤집는 함수
   const flipBoard = () => {
-    const allBlocks = document.querySelectorAll(".board-column");
+    const allBlocks = document.querySelectorAll(".board-column"); // 모든 칸을 선택
 
     let delay = 0;
     allBlocks.forEach((block) => {
       setTimeout(() => {
-        block.classList.add("flipped");
+        block.classList.add("flipped"); // 뒤집기 애니메이션 적용
       }, delay);
-      delay += 100;
+      delay += 100; // 각 칸마다 100ms씩 지연
     });
   };
 }
