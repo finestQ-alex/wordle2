@@ -80,7 +80,7 @@ function appStart() {
 
   //키보드 색상 업데이트를 위한 버튼 점검
   const keyboardColor = (inputLetter) => {
-    const keyButton = document.querySelector(`[data-key='${inputLetter}]`);
+    const keyButton = document.querySelector(`[data-key='${inputLetter}']`);
     if (!keyButton) return;
 
     if (answer.includes(inputLetter)) {
