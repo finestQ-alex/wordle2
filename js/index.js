@@ -63,7 +63,7 @@ function appStart() {
     if (index !== 0) index -= 1;
   };
   //키보드 입력
-  const handleKeydown = (event) => {
+  const hadleKeydown = (event) => {
     const key = event.key.toUpperCase();
     const keyCode = event.keyCode;
     const thisBlock = document.querySelector(
