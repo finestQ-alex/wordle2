@@ -53,7 +53,7 @@ function appStart() {
   };
 
   //백스페이스
-  const hadleBackspace = () => {
+  const handleBackspace = () => {
     if (index > 0) {
       const preBlock = document.querySelector(
         `.board-column[data-index='${attempts}${index - 1}']`
@@ -102,7 +102,7 @@ function appStart() {
     );
     const dataKey = e.target.dataset.key;
 
-    if (dataKey === "Backspace") hadleBackspace();
+    if (dataKey === "Backspace") handleBackspace();
     else if (index === 5) {
       if (dataKey === "Enter") handleEnterKey();
       else return;
