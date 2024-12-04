@@ -96,7 +96,7 @@ function appStart() {
   };
 
   //마우스 클릭 이벤트
-  const clickKey = (e) => {
+  const clickKey = (es) => {
     const thisBlock = document.querySelector(
       `.board-column[data-index="${attempts}${index}"]`
     );
