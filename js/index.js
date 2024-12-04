@@ -70,7 +70,7 @@ function appStart() {
       `.board-column[data-index='${attempts}${index}']`
     );
 
-    if (event.key === "Backspace") hadleBackspace();
+    if (event.key === "Backspace") handleBackspace();
     else if (index === 5) {
       if (event.key === "Enter") handleEnterKey();
       else return;
